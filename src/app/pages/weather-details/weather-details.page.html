@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Back Button on the left -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/weather"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Weather Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Loading Spinner -->
+  <ion-spinner *ngIf="loading" name="dots"></ion-spinner>
+
+  <!-- Weather Details -->
+  <div *ngIf="!loading && weatherData">
+    <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+    <div class="weather-details">
+      <ion-item>
+        <ion-label><ion-icon name="cloud" slot="start"></ion-icon>Description:</ion-label>
+        <ion-text>{{ weatherData.weather[0].description }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="thermometer" slot="start"></ion-icon>Temperature:</ion-label>
+        <ion-text>{{ weatherData.main.temp }} °C</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="water" slot="start"></ion-icon>Humidity:</ion-label>
+        <ion-text>{{ weatherData.main.humidity }} %</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="speedometer" slot="start"></ion-icon>Wind Speed:</ion-label>
+        <ion-text>{{ weatherData.wind.speed }} m/s</ion-text>
+      </ion-item>
+    </div>
+    
+  </div>
+
+  <!-- Fallback for No Data -->
+  <div *ngIf="!loading && !weatherData" class="ion-text-center">
+    <ion-text color="danger" >No weather data available</ion-text>
+  </div>
+</ion-content>

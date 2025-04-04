@@ -1,0 +1,12 @@
+
+
+<ion-content class="ion-padding" [scroll]="false">
+  <form (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Country Name</ion-label>
+      <ion-input [(ngModel)]="countryName" name="countryName" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" [disabled]="!countryName">Get Weather</ion-button>
+  </form>
+</ion-content>
