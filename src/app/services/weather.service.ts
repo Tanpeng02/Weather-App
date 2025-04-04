@@ -4,10 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface WeatherResponse {
-  coord: {
-    lon: number;
-    lat: number;
-  };
+  
   weather: {
     description: string;
     icon: string;
